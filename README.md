@@ -1,2 +1,1 @@
-# docker-goaccess
-GoAccess in a Docker container
+[GoAccess](https://goaccess.io/) in a Docker container.
