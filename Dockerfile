@@ -27,7 +27,5 @@ RUN sed -i "s/#time-format %H:%M:%S/time-format %H:%M:%S/" /usr/local/etc/goacce
     && sed -i "s/#date-format %d\/%b\/%Y/date-format %d\/%b\/%Y/" /usr/local/etc/goaccess.conf \
     && sed -i "s/#log-format %h %^\[%d:%t %^\] \"%r\" %s %b \"%R\" \"%u\"/log-format %h %^\[%d:%t %^\] \"%r\" %s %b \"%R\" \"%u\"/" /usr/local/etc/goaccess.conf
 
-EXPOSE 7890
-ENTRYPOINT ["goaccess"]
-CMD ["-f", "/var/log/nginx/access.log", \
-    "--real-time-html", "-o", "report.html"]
+ENTRYPOINT ["goaccess", "-f", "/var/log/nginx/access.log",\
+	   "-o", "report.html"]
