@@ -23,7 +23,9 @@ RUN wget http://tar.goaccess.io/goaccess-$version.tar.gz \
     && rm -rf goaccess-$version \
     && rm goaccess-$version.tar.gz
 
-COPY goaccess.conf /usr/local/etc/
+RUN echo "time-format %H:%M:%S" >> /usr/local/etc/goaccess.conf \
+    && echo "date-format %d/%b/%Y" >> /usr/local/etc/goaccess.conf \
+    && echo "log-format %h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"" >> /usr/local/etc/goaccess.conf
 
 EXPOSE 7890
 ENTRYPOINT ["goaccess"]
