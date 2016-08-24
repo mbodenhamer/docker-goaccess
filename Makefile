@@ -12,7 +12,7 @@ build:
 	$(TEST) docker build -t $(IMAGE):latest .
 
 shell:
-	docker run --rm -it $(IMAGE):latest bash
+	docker run --rm -it --entrypoint bash $(IMAGE):latest
 
 .PHONY: build shell
 #-------------------------------------------------------------------------------

@@ -22,3 +22,10 @@ RUN wget http://tar.goaccess.io/goaccess-$version.tar.gz \
     && cd .. \
     && rm -rf goaccess-$version \
     && rm goaccess-$version.tar.gz
+
+COPY goaccess.conf /usr/local/etc/
+
+EXPOSE 7890
+ENTRYPOINT ["goaccess"]
+CMD ["-f", "/var/log/nginx/access.log", \
+    "--real-time-html", "-o", "report.html"]
